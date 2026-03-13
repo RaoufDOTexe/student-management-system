@@ -1,20 +1,7 @@
-import sqlite3
+from database import connect
 
 # connect to database
-conn = sqlite3.connect("students.db")
-cursor = conn.cursor()
-
-# create table if it does not exist
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS students(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
-name TEXT NOT NULL,
-age INTEGER,
-major TEXT
-)
-""")
-
-conn.commit()
+conn, cursor = connect()
 
 
 # add student
